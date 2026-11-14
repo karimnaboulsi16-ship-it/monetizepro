@@ -7,10 +7,16 @@ import {
   calculateSavings,
   formatCurrencyPrice,
   calculateCombinedOrder,
+  getCheckoutUrlWithTracking,
 } from './pricing';
 
 test('CHECKOUT_URL points to the official Kirvano checkout', () => {
   assert.equal(CHECKOUT_URL, 'https://pay.kirvano.com/d118db5c-3284-4688-847b-ddf03fc854dc');
+  assert.equal(getCheckoutUrlWithTracking(''), CHECKOUT_URL);
+  assert.equal(
+    getCheckoutUrlWithTracking('?utm_source=meta&fbclid=abc123&ignored=foo'),
+    `${CHECKOUT_URL}?utm_source=meta&fbclid=abc123`
+  );
 });
 
 test('calculateDiscountPercent correctly calculates discount percentage', () => {

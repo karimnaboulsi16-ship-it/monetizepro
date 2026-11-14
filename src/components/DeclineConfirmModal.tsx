@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, X, ShieldAlert } from 'lucide-react';
 import { CurrencyCode } from '../types';
-import { CHECKOUT_URL, CURRENCY_RATES, formatCurrencyPrice } from '../utils/pricing';
+import { CURRENCY_RATES, formatCurrencyPrice, getCheckoutUrlWithTracking } from '../utils/pricing';
 import { trackPixelEvent } from '../utils/pixel';
 
 interface Props {
@@ -20,6 +20,7 @@ export const DeclineConfirmModal: React.FC<Props> = ({
   if (!isOpen) return null;
 
   const currentPricing = CURRENCY_RATES[currency] || CURRENCY_RATES.BRL;
+  const checkoutHref = getCheckoutUrlWithTracking();
 
   return (
     <div
@@ -55,7 +56,7 @@ export const DeclineConfirmModal: React.FC<Props> = ({
 
         <div className="space-y-3">
           <a
-            href={CHECKOUT_URL}
+            href={checkoutHref}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => {

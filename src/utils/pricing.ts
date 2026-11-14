@@ -2,6 +2,48 @@ import { CurrencyCode, CurrencyConfig } from '../types';
 
 export const CHECKOUT_URL = 'https://pay.kirvano.com/d118db5c-3284-4688-847b-ddf03fc854dc';
 
+const TRACKING_PARAM_KEYS = [
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'utm_content',
+  'utm_term',
+  'fbclid',
+  'gclid',
+  'gbraid',
+  'wbraid',
+  'ttclid',
+  'tbclid',
+  'src',
+  'xcod',
+  'sck',
+  'click_id',
+];
+
+export function getCheckoutUrlWithTracking(search?: string): string {
+  const query =
+    search !== undefined
+      ? search
+      : typeof window !== 'undefined'
+        ? window.location.search
+        : '';
+  if (!query || query.length < 2) return CHECKOUT_URL;
+
+  try {
+    const incoming = new URLSearchParams(query.startsWith('?') ? query.slice(1) : query);
+    const target = new URL(CHECKOUT_URL);
+    for (const key of TRACKING_PARAM_KEYS) {
+      const val = incoming.get(key);
+      if (val && val !== 'null' && val !== 'undefined' && !target.searchParams.has(key)) {
+        target.searchParams.set(key, val);
+      }
+    }
+    return target.toString();
+  } catch {
+    return CHECKOUT_URL;
+  }
+}
+
 export const CURRENCY_RATES: Record<CurrencyCode, CurrencyConfig> = {
   BRL: {
     code: 'BRL',

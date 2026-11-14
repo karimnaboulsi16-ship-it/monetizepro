@@ -3,10 +3,10 @@ import { ShieldCheck, Zap, ArrowRight, Gift, Lock, Clock } from 'lucide-react';
 import { BONUSES } from '../data/upsellContent';
 import { CurrencyCode } from '../types';
 import {
-  CHECKOUT_URL,
   CURRENCY_RATES,
   calculateDiscountPercent,
   formatCurrencyPrice,
+  getCheckoutUrlWithTracking,
 } from '../utils/pricing';
 import { trackPixelEvent } from '../utils/pixel';
 
@@ -25,6 +25,7 @@ export const OfferStackSection: React.FC<Props> = ({
     currentPricing.offerPrice
   );
   const totalRealValue = BONUSES.reduce((sum, item) => sum + item.value, 0);
+  const checkoutHref = getCheckoutUrlWithTracking();
 
   return (
     <section id="oferta" className="py-12 px-4 relative scroll-mt-28">
@@ -119,7 +120,7 @@ export const OfferStackSection: React.FC<Props> = ({
           <div className="space-y-4">
             {/* Primary Action Button - ONLY Green CTA (opens Kirvano checkout directly in a new tab) */}
             <a
-              href={CHECKOUT_URL}
+              href={checkoutHref}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackPixelEvent('InitiateCheckout', { value: currentPricing.offerPrice, currency: currentPricing.code })}
