@@ -8,7 +8,6 @@ import {
   formatCurrencyPrice,
   getCheckoutUrlWithTracking,
 } from '../utils/pricing';
-import { trackPixelEvent } from '../utils/pixel';
 
 interface Props {
   currency: CurrencyCode;
@@ -123,7 +122,6 @@ export const OfferStackSection: React.FC<Props> = ({
               href={checkoutHref}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackPixelEvent('InitiateCheckout', { value: currentPricing.offerPrice, currency: currentPricing.code })}
               className="cta-bombard-glow w-full py-5 px-6 rounded-2xl font-heading font-black text-base sm:text-xl text-white bg-gradient-to-r from-emerald-600 via-green-500 to-emerald-600 hover:from-emerald-500 hover:via-green-400 hover:to-emerald-500 border border-emerald-400/80 transition-all duration-200 active:scale-[0.98] flex items-center justify-center gap-3 cursor-pointer text-center"
             >
               <Zap className="relative z-10 w-6 h-6 fill-white shrink-0" />

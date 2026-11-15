@@ -2,7 +2,6 @@ import React from 'react';
 import { ArrowRight, X, ShieldAlert } from 'lucide-react';
 import { CurrencyCode } from '../types';
 import { CURRENCY_RATES, formatCurrencyPrice, getCheckoutUrlWithTracking } from '../utils/pricing';
-import { trackPixelEvent } from '../utils/pixel';
 
 interface Props {
   isOpen: boolean;
@@ -59,10 +58,7 @@ export const DeclineConfirmModal: React.FC<Props> = ({
             href={checkoutHref}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => {
-              trackPixelEvent('InitiateCheckout', { value: currentPricing.offerPrice, currency: currentPricing.code });
-              onClose();
-            }}
+            onClick={onClose}
             className="cta-bombard-glow w-full py-3.5 px-5 rounded-xl font-heading font-black text-xs sm:text-sm text-white bg-gradient-to-r from-emerald-600 via-green-500 to-emerald-600 hover:from-emerald-500 hover:via-green-400 hover:to-emerald-500 border border-emerald-400/80 transition-all flex items-center justify-center gap-2 cursor-pointer text-center"
           >
             <span className="relative z-10">SIM, QUERO MONETIZAR MAIS RÁPIDO POR APENAS {formatCurrencyPrice(currentPricing.offerPrice, currency)}</span>
