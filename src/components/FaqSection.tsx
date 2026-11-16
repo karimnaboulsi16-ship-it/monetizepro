@@ -10,9 +10,9 @@ export const FaqSection: React.FC = () => {
   };
 
   return (
-    <section className="py-12 px-4 max-w-4xl mx-auto border-t border-slate-700/80">
+    <section className="py-12 px-4 max-w-4xl mx-auto border-t border-neutral-700/80">
       <div className="text-center mb-8">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-orange-300 text-xs font-semibold mb-2">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-orange-300 text-xs font-semibold mb-2">
           <HelpCircle className="w-3.5 h-3.5 text-orange-400" />
           Perguntas Frequentes
         </div>
@@ -27,11 +27,11 @@ export const FaqSection: React.FC = () => {
           return (
             <div
               key={index}
-              className="rounded-xl border border-slate-700 bg-slate-800/90 overflow-hidden transition-colors shadow-md"
+              className="rounded-xl border border-neutral-700 bg-neutral-800/90 overflow-hidden transition-colors shadow-md"
             >
               <button
                 onClick={() => toggle(index)}
-                className="w-full py-4 px-5 text-left flex items-center justify-between gap-4 font-heading font-bold text-sm sm:text-base text-slate-100 hover:text-orange-300 transition-colors cursor-pointer"
+                className="w-full py-4 px-5 text-left flex items-center justify-between gap-4 font-heading font-bold text-sm sm:text-base text-neutral-100 hover:text-orange-300 transition-colors cursor-pointer"
                 aria-expanded={isOpen}
               >
                 <span>{faq.question}</span>
@@ -42,7 +42,7 @@ export const FaqSection: React.FC = () => {
                 />
               </button>
               {isOpen && (
-                <div className="px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-700/80 pt-3">
+                <div className="px-5 pb-5 text-xs sm:text-sm text-neutral-300 leading-relaxed border-t border-neutral-700/80 pt-3">
                   {faq.answer}
                 </div>
               )}

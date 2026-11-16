@@ -26,20 +26,20 @@ export const DeclineConfirmModal: React.FC<Props> = ({
       role="dialog"
       aria-modal="true"
       aria-labelledby="decline-modal-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/75 backdrop-blur-md"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-neutral-950/75 backdrop-blur-md"
     >
-      <div className="relative w-full max-w-md rounded-2xl border border-slate-600 bg-slate-800 p-6 shadow-2xl text-center">
+      <div className="relative w-full max-w-md rounded-2xl border border-neutral-600 bg-neutral-800 p-6 shadow-2xl text-center">
         {/* Close */}
         <button
           onClick={onClose}
           aria-label="Fechar modal"
-          className="absolute top-4 right-4 p-2 rounded-full text-slate-300 hover:text-white bg-slate-700 border border-slate-600 transition-colors cursor-pointer"
+          className="absolute top-4 right-4 p-2 rounded-full text-neutral-300 hover:text-white bg-neutral-700 border border-neutral-600 transition-colors cursor-pointer"
         >
           <X className="w-4 h-4" />
         </button>
 
         {/* Warning Icon */}
-        <div className="mx-auto w-12 h-12 rounded-xl bg-slate-900/70 border border-slate-600 flex items-center justify-center text-amber-400 mb-3">
+        <div className="mx-auto w-12 h-12 rounded-xl bg-neutral-900/70 border border-neutral-600 flex items-center justify-center text-amber-400 mb-3">
           <ShieldAlert className="w-7 h-7" />
         </div>
 
@@ -49,7 +49,7 @@ export const DeclineConfirmModal: React.FC<Props> = ({
         <h3 id="decline-modal-title" className="font-heading text-xl sm:text-2xl font-bold text-white uppercase tracking-tight mb-2">
           Esta oferta não vai aparecer novamente
         </h3>
-        <p className="text-xs text-slate-300 leading-relaxed mb-6">
+        <p className="text-xs text-neutral-300 leading-relaxed mb-6">
           Se você sair desta página, o preço do <strong>Guia Viral Master Pro</strong> voltará ao seu valor normal de <strong>{formatCurrencyPrice(currentPricing.regularPrice, currency)}</strong>. Você não poderá adicioná-lo por apenas <strong>{formatCurrencyPrice(currentPricing.offerPrice, currency)}</strong> depois.
         </p>
 
@@ -67,7 +67,7 @@ export const DeclineConfirmModal: React.FC<Props> = ({
 
           <button
             onClick={onConfirmDecline}
-            className="w-full py-2.5 px-4 rounded-xl text-xs text-slate-400 hover:text-slate-200 transition-colors cursor-pointer"
+            className="w-full py-2.5 px-4 rounded-xl text-xs text-neutral-400 hover:text-neutral-200 transition-colors cursor-pointer"
           >
             Entendo o risco, continuar apenas com o pack básico
           </button>

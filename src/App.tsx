@@ -3,12 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { CurrencyCode } from './types';
 import { TopUrgencyBanner } from './components/TopUrgencyBanner';
 import { HeroSection } from './components/HeroSection';
 import { VisualBenefits } from './components/VisualBenefits';
-import { InteractiveHookSimulator } from './components/InteractiveHookSimulator';
 import { SocialProofStrip } from './components/SocialProofStrip';
 import { OfferStackSection } from './components/OfferStackSection';
 import { FaqSection } from './components/FaqSection';
@@ -17,17 +16,7 @@ import { DeclineConfirmModal } from './components/DeclineConfirmModal';
 
 export default function App() {
   const [currency] = useState<CurrencyCode>('BRL');
-  const [timeLeft, setTimeLeft] = useState<number>(600); // 10 minutes
   const [showDeclineModal, setShowDeclineModal] = useState<boolean>(false);
-
-  // Live countdown timer
-  useEffect(() => {
-    if (timeLeft <= 0) return;
-    const interval = setInterval(() => {
-      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [timeLeft]);
 
   const handleDeclineUpsell = () => {
     setShowDeclineModal(true);
@@ -41,9 +30,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#1B2436] text-slate-100 flex flex-col font-sans selection:bg-orange-500 selection:text-white bg-grid-pattern">
-      {/* 1. Urgency Bar & Progress Top Bar */}
-      <TopUrgencyBanner timeLeftSeconds={timeLeft} />
+    <div className="min-h-screen bg-[#181818] text-neutral-100 flex flex-col font-sans selection:bg-orange-500 selection:text-white">
+      {/* 1. Sticky Purchase Confirmation Bar & Header */}
+      <TopUrgencyBanner />
 
       {/* Main Content Funnel */}
       <main className="flex-1">
@@ -53,10 +42,7 @@ export default function App() {
         {/* 3. Three Visual Benefits (Mais visualizações, Crescimento mais rápido, Estratégias de viralização) */}
         <VisualBenefits />
 
-        {/* 4. Interactive Hook Simulator (Proof of why content alone is not enough) */}
-        <InteractiveHookSimulator />
-
-        {/* 5. Social Proof and Quantitative Impact Strip */}
+        {/* 4. Social Proof and Quantitative Impact Strip */}
         <SocialProofStrip />
 
         {/* 6. Official Upsell Offer Stack with Pricing, Checkout Button & Discrete Decline */}
@@ -69,11 +55,11 @@ export default function App() {
         <FaqSection />
 
         {declineConfirmed && (
-          <div className="fixed bottom-4 left-4 right-4 max-w-lg mx-auto z-40 p-4 rounded-2xl bg-slate-800 border border-slate-600 shadow-2xl flex items-center justify-between gap-3 text-xs sm:text-sm text-slate-100">
+          <div className="fixed bottom-4 left-4 right-4 max-w-lg mx-auto z-40 p-4 rounded-2xl bg-neutral-800 border border-neutral-600 shadow-2xl flex items-center justify-between gap-3 text-xs sm:text-sm text-neutral-100">
             <span>Seu pedido continuará apenas com o Pack Viral Master básico. Acesso enviado para o seu e-mail.</span>
             <button
               onClick={() => setDeclineConfirmed(false)}
-              className="text-xs px-2.5 py-1 rounded bg-slate-700 hover:bg-slate-600 text-white font-medium shrink-0 cursor-pointer"
+              className="text-xs px-2.5 py-1 rounded bg-neutral-700 hover:bg-neutral-600 text-white font-medium shrink-0 cursor-pointer"
             >
               Entendi
             </button>

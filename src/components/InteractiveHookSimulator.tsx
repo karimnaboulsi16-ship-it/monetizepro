@@ -35,10 +35,10 @@ export const InteractiveHookSimulator: React.FC = () => {
 
   return (
     <section className="py-12 px-4 max-w-5xl mx-auto">
-      <div className="rounded-2xl border border-slate-700 bg-slate-800/90 p-6 sm:p-8 shadow-2xl">
+      <div className="rounded-2xl border border-neutral-700 bg-neutral-800/90 p-6 sm:p-8 shadow-2xl">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-8">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/75 border border-slate-600 text-orange-300 text-xs font-semibold mb-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-900/75 border border-neutral-600 text-orange-300 text-xs font-semibold mb-3">
             <Sparkles className="w-3.5 h-3.5 text-orange-400" />
             Demonstração Ao Vivo: O Poder Do Gancho
           </div>
@@ -63,7 +63,7 @@ export const InteractiveHookSimulator: React.FC = () => {
               </div>
 
               {/* Vertical Online Video Frame Photo */}
-              <div className="relative aspect-[4/5] w-full rounded-xl overflow-hidden border border-slate-700 bg-slate-900 mb-4 group">
+              <div className="relative aspect-[4/5] w-full rounded-xl overflow-hidden border border-neutral-700 bg-neutral-900 mb-4 group">
                 <img
                   src={videoFlopImg}
                   alt="Vídeo comum postado sem técnica viral com poucas visualizações"
@@ -123,18 +123,18 @@ export const InteractiveHookSimulator: React.FC = () => {
 
             <div className="pt-3 border-t border-red-500/20 space-y-2">
               <div className="flex justify-between items-center text-xs">
-                <span className="text-slate-300">Alcance final:</span>
+                <span className="text-neutral-300">Alcance final:</span>
                 <span className="font-mono font-bold text-red-400">{current.normalViews}</span>
               </div>
               <div className="flex justify-between items-center text-xs">
-                <span className="text-slate-300">Retenção de audiência:</span>
-                <span className="font-mono font-medium text-slate-200">{current.normalRetention}</span>
+                <span className="text-neutral-300">Retenção de audiência:</span>
+                <span className="font-mono font-medium text-neutral-200">{current.normalRetention}</span>
               </div>
             </div>
           </div>
 
           {/* Right Video Comparison Card: Viral Master Pro Video */}
-          <div className="p-4 sm:p-5 rounded-2xl border-2 border-orange-500 bg-slate-900/55 shadow-xl shadow-slate-950/40 flex flex-col justify-between">
+          <div className="p-4 sm:p-5 rounded-2xl border-2 border-orange-500 bg-neutral-900/55 shadow-xl shadow-neutral-950/40 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between gap-2 mb-3">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-orange-400 flex items-center gap-1.5">
@@ -147,7 +147,7 @@ export const InteractiveHookSimulator: React.FC = () => {
               </div>
 
               {/* Vertical Online Video Frame Photo */}
-              <div className="relative aspect-[4/5] w-full rounded-xl overflow-hidden border border-orange-400/60 bg-slate-900 mb-4 shadow-inner">
+              <div className="relative aspect-[4/5] w-full rounded-xl overflow-hidden border border-orange-400/60 bg-neutral-900 mb-4 shadow-inner">
                 <img
                   src={videoViralImg}
                   alt="Vídeo viral aplicando o método Viral Master Pro com milhões de visualizações"
@@ -207,20 +207,20 @@ export const InteractiveHookSimulator: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-3 border-t border-slate-700 space-y-2">
+            <div className="pt-3 border-t border-neutral-700 space-y-2">
               <div className="flex justify-between items-center text-xs">
-                <span className="text-slate-200 font-medium">Alcance final:</span>
+                <span className="text-neutral-200 font-medium">Alcance final:</span>
                 <span className="font-mono font-extrabold text-orange-400 text-base">{current.viralViews}</span>
               </div>
               <div className="flex justify-between items-center text-xs">
-                <span className="text-slate-200 font-medium">Retenção de audiência:</span>
+                <span className="text-neutral-200 font-medium">Retenção de audiência:</span>
                 <span className="font-mono font-bold text-amber-300">{current.viralRetention}</span>
               </div>
             </div>
           </div>
         </div>
 
-        <p className="text-center text-xs text-slate-400 mt-6">
+        <p className="text-center text-xs text-neutral-400 mt-6">
           *Dentro do Guia você receberá mais de 1.000 modelos idênticos a este para copiar, colar e viralizar qualquer um dos vídeos do seu pack.
         </p>
       </div>

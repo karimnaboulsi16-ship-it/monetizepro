@@ -1,6 +1,14 @@
 import React from 'react';
-import { ASSETS, PROBLEM_STATEMENT } from '../data/upsellContent';
-import { Flame, TrendingUp, AlertCircle, Eye, Zap, ArrowRight } from 'lucide-react';
+import { Zap, ArrowRight, Check, Gift } from 'lucide-react';
+import { BONUSES } from '../data/upsellContent';
+
+const HERO_INCLUDED_FEATURES = [
+  'Manual Secreto completo do Método Viral Master Pro',
+  'Passo a passo para TikTok, Instagram Reels e YouTube Shorts',
+  'Técnicas de retenção acima de 85% nos primeiros 3 segundos',
+  'Garantia dupla de satisfação de 30 dias',
+  'Atualizações futuras gratuitas',
+];
 
 export const HeroSection: React.FC = () => {
   return (
@@ -12,56 +20,36 @@ export const HeroSection: React.FC = () => {
       />
       <div
         aria-hidden="true"
-        className="absolute top-1/2 right-10 w-[350px] h-[350px] bg-slate-500/15 rounded-full blur-[100px] pointer-events-none"
+        className="absolute top-1/2 right-10 w-[350px] h-[350px] bg-neutral-500/15 rounded-full blur-[100px] pointer-events-none"
       />
 
       <div className="max-w-6xl mx-auto px-4 relative z-10">
-        {/* Pre-headline Badge */}
-        <div className="flex justify-center mb-5 px-2">
-          <div className="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 px-3.5 py-1.5 rounded-full bg-slate-800/90 border border-slate-600 text-slate-200 text-[11px] sm:text-xs font-semibold tracking-wide uppercase shadow-md text-center">
-            <span className="inline-flex items-center gap-1.5">
-              <Flame className="w-3.5 h-3.5 text-orange-400 shrink-0" />
-              <span>Upgrade Exclusivo</span>
-            </span>
-            <span className="text-slate-500 hidden sm:inline">·</span>
-            <span className="text-amber-400 font-bold">Oferta Única</span>
-          </div>
-        </div>
-
-        {/* Main Headline requested by user */}
+        {/* Main Headline */}
         <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center text-white tracking-tight uppercase leading-[1.1] max-w-5xl mx-auto mb-3 text-balance">
-          NÃO BASTA TER VÍDEOS VIRAIS.{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-orange-300">
-            VOCÊ PRECISA SABER COMO VIRALIZÁ-LOS!
+          NÃO ADIANTA VOCÊ TER 1 MILHÃO DE VÍDEOS{' '}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-100 to-orange-300">
+            SE NÃO SABE O SEGREDO DA VIRALIZAÇÃO E MONETIZAÇÃO
           </span>
         </h1>
 
         {/* Subheadline */}
         <p className="font-heading text-lg sm:text-xl md:text-2xl font-bold text-center text-orange-400 tracking-tight max-w-3xl mx-auto mb-8">
-          Monetize 10x mais rápido!
+          Aprenda o segredo e monetize 10x mais rápido!
         </p>
 
-        {/* The Problem Statement */}
+        {/* Comparison Image replacing the previous card */}
         <div className="max-w-3xl mx-auto mb-8">
-          <div className="relative p-5 sm:p-6 rounded-2xl bg-slate-800/85 border border-slate-600/80 shadow-xl backdrop-blur-sm">
-            <div className="flex items-start gap-3 sm:gap-4">
-              <div className="p-2 sm:p-2.5 rounded-xl bg-slate-900/70 border border-slate-600 text-orange-400 shrink-0 mt-0.5">
-                <AlertCircle className="w-5 h-5 sm:w-6 sm:h-6" />
-              </div>
-              <div>
-                <p className="text-base sm:text-lg font-medium text-slate-100 leading-snug mb-2">
-                  &ldquo;{PROBLEM_STATEMENT.quote}&rdquo;
-                </p>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-                  {PROBLEM_STATEMENT.subtext}
-                </p>
-              </div>
-            </div>
+          <div className="relative rounded-2xl overflow-hidden border border-neutral-700/80 shadow-2xl bg-neutral-900">
+            <img
+              src="/assets/aistudio/Do_Fracasso___Viraliza__o_no_YouTube_ea7f4a4b.png"
+              alt="Sem saber o segredo da viralização versus aprendendo o segredo para viralizar mais rápido e ganhar dinheiro"
+              className="w-full h-auto block"
+            />
           </div>
         </div>
 
         {/* Hero CTA scrolling directly to the offer - ONLY green element */}
-        <div className="flex justify-center mb-10">
+        <div className="flex justify-center">
           <a
             href="#oferta"
             onClick={(e) => {
@@ -78,43 +66,33 @@ export const HeroSection: React.FC = () => {
           </a>
         </div>
 
-        {/* Smartphone Growth Analytics */}
-        <div className="max-w-xl mx-auto mb-12">
-          <div className="flex flex-col gap-4">
-            <div className="relative rounded-2xl overflow-hidden border border-slate-600/80 bg-slate-800/90 p-4 shadow-xl">
-              <div className="relative rounded-xl overflow-hidden mb-3">
-                <img
-                  src={ASSETS.phoneGrowth}
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/images/smartphone_viral_growth_1793370555605.jpg';
-                  }}
-                  alt="Estatísticas de crescimento viral no smartphone"
-                  className="w-full h-56 sm:h-64 object-cover object-center"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute top-3 left-3 bg-slate-900/85 backdrop-blur-md border border-slate-600 px-2.5 py-1 rounded-md flex items-center gap-1.5 text-xs text-white font-semibold">
-                  <TrendingUp className="w-3.5 h-3.5 text-orange-400" />
-                  <span>+1.250% Alcance Viral</span>
-                </div>
-                <div className="absolute bottom-3 right-3 bg-slate-900/85 backdrop-blur-md border border-slate-600 px-2.5 py-1 rounded-md flex items-center gap-1.5 text-xs text-amber-300 font-bold tabular-nums">
-                  <Eye className="w-3.5 h-3.5" />
-                  <span>3,8M Visualizações</span>
-                </div>
+        {/* Features & Bonuses Checklist below first CTA */}
+        <div className="mt-8 max-w-xl mx-auto rounded-2xl border border-lime-400/50 bg-[#0d0d0d] px-6 py-6 sm:px-8 sm:py-7 shadow-xl">
+          <h2 className="font-heading text-lg sm:text-xl font-black text-center text-white uppercase tracking-tight mb-5">
+            Veja o que você <span className="text-lime-400">receberá</span>
+          </h2>
+          <div className="max-w-md mx-auto space-y-2.5 text-left">
+            {HERO_INCLUDED_FEATURES.map((feature, index) => (
+              <div key={index} className="flex items-start gap-2.5 text-sm leading-snug">
+                <span className="w-4 h-4 rounded-[3px] bg-emerald-500 flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                  <Check className="w-3 h-3 text-white stroke-[3]" />
+                </span>
+                <span className="text-neutral-100 font-medium">{feature}</span>
               </div>
+            ))}
 
-              {/* Instant benefits highlight */}
-              <div className="space-y-2.5">
-                <div className="flex items-center justify-between text-xs py-2 px-3 rounded-lg bg-slate-900/65 border border-slate-700">
-                  <span className="text-slate-200 font-medium">Ganchos magnéticos comprovados</span>
-                  <span className="text-orange-400 font-bold font-mono">3 segundos</span>
-                </div>
-                <div className="flex items-center justify-between text-xs py-2 px-3 rounded-lg bg-slate-900/65 border border-slate-700">
-                  <span className="text-slate-200 font-medium">Retenção média do espectador</span>
-                  <span className="text-orange-400 font-bold font-mono">82% - 94%</span>
-                </div>
+            {BONUSES.map((bonus) => (
+              <div key={bonus.id} className="flex items-start gap-2.5 text-sm leading-snug">
+                <Gift className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+                <span className="text-neutral-100 font-medium">
+                  <span className="font-extrabold text-lime-400 uppercase tracking-wide mr-1">
+                    BÔNUS:
+                  </span>
+                  {bonus.title}
+                  <Gift className="inline-block w-3.5 h-3.5 text-amber-400 ml-1.5 -mt-0.5" />
+                </span>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
