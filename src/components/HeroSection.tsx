@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, ArrowRight, Check, Gift } from 'lucide-react';
+import { Zap, ArrowRight, Check, Gift, Quote } from 'lucide-react';
 import { BONUSES } from '../data/upsellContent';
 
 const HERO_INCLUDED_FEATURES = [
@@ -95,6 +95,15 @@ export const HeroSection: React.FC = () => {
             ))}
           </div>
         </div>
+
+        {/* Poetic Quote below "Veja o que você receberá" */}
+        <figure className="mt-8 max-w-2xl mx-auto rounded-2xl border border-neutral-800 bg-neutral-900/65 px-6 py-7 sm:px-8 text-center shadow-xl">
+          <Quote className="w-6 h-6 text-amber-400/80 mx-auto mb-3" />
+          <blockquote className="font-['Playfair_Display',Georgia,serif] italic text-lg sm:text-xl md:text-2xl text-neutral-100 leading-relaxed">
+            &ldquo;Não adianta ter uma Ferrari se não sabe <span className="whitespace-nowrap">usá-la.&rdquo;</span>
+          </blockquote>
+          <div aria-hidden="true" className="w-12 h-px bg-amber-400/50 mx-auto mt-4" />
+        </figure>
       </div>
     </section>
   );
