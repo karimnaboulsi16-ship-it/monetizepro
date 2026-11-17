@@ -1,6 +1,6 @@
 import { CurrencyCode, CurrencyConfig } from '../types';
 
-export const CHECKOUT_URL = 'https://pay.wiapy.com/43R3aG_5i9yH';
+export const CHECKOUT_URL = 'https://pay.kirvano.com/d118db5c-3284-4688-847b-ddf03fc854dc';
 
 const TRACKING_PARAM_KEYS = [
   'utm_source',
