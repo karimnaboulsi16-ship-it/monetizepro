@@ -10,8 +10,8 @@ import {
   getCheckoutUrlWithTracking,
 } from './pricing';
 
-test('CHECKOUT_URL points to the official Kirvano checkout', () => {
-  assert.equal(CHECKOUT_URL, 'https://pay.kirvano.com/d118db5c-3284-4688-847b-ddf03fc854dc');
+test('CHECKOUT_URL points to the official checkout link', () => {
+  assert.equal(CHECKOUT_URL, 'https://pay.wiapy.com/43R3aG_5i9yH');
   assert.equal(getCheckoutUrlWithTracking(''), CHECKOUT_URL);
   assert.equal(
     getCheckoutUrlWithTracking('?utm_source=meta&fbclid=abc123&ignored=foo'),
